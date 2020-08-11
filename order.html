@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html ng-app="EMenu" ng-controller="customerOrderController" style="overflow-x:hidden;" dir="<%dir%>">
+<head>
+	<meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="#7e566a">
+  <meta name="theme-color" content="#7e566a" />
+  <meta itemprop="name" content="Louly Cafe - لولي كافيه | المنيو الرقمية">
+  <meta name="description" content="Test Account 
+  حساب تجربي">
+    <meta itemprop="description" content="Test Account \n
+  حساب تجربي">
+  <meta name="keywords" content="
+      Hot Drinks,مشروبات ساخنة,
+      Red Tea Sailan,شاي أسود سيريلانكي,
+    Jasmine Tea,شاي بالياسمين,
+    White Tea,شاي أبيض,
+    Green Tea,شاي أخضر عادي,
+    Oolong Tea,شاي أولونق الأخضر الصيني,
+    Matcha Late,ماتشا لاتيه,
+    Nirvana,نيرفانا,
+    Milk with Ginger,الحليب المبخر بالزنجبيل,
+    Milk with Ginger,الحليب المبخر بالزنجبيل,
+    Hot Chocolate,شوكولا ساخنة,
+    Karak Tea,شاي كرك,
+    .,كيكة الريد فلفت,
+        Cold Drinks,مشروبات باردة,
+      Mocha Frappe,موكا فرابي,
+    Pistachio Latte,بستاشيو لاتيه,
+    Spanish Latte,سبانيش لاتيه,
+    Fresh Orange Juice,عصير البرتقال الطازج,
+    Mint-Lemon,ليمون بالنعناع,
+    Red Bull flavored,ريد بول منكهة,
+        Specialized Coffee,القهوة المتخصصة,
+      Cold Brew Coffee,القهوة المقطرة على البارد,
+    Chemex Coffee,قهوة الكيمكس,
+    Pour Over Coffee,قهوة البور أوفر,
+    French Press Coffee,قهوة الفرنش بريس,
+    French Press Coffee,قهوة الفرنش بريس,
+        Hot Coffee Drinks,القهوة الساخنة,
+      Turkish Coffee,القهوة التركية,
+    Coffee Latte,كوفي لاتيه,
+    American coffee,القهوة الأمريكية المقطرة,
+    French Coffee,قهوة فرنسية,
+    Spanish Latte,سبانيش لاتيه,
+    Cortado,كورتادو,
+    Pistachio Latte,بيستاشيو لاتيه,
+    Espresso,الاسبرسو,
+    Espresso,الاسبرسو,
+    Coffee Mocha,كوفي موكا,
+    Cafe au lait,لايت كوفي,
+        Sandwich,سندويشات خفيفة,
+      Shawarma Club,شاورما كلوب,
+    Shawarma Panini,شاورما بخبز السمسم,
+    Halloumi Panini,بانيني حلومي,
+    Turkey Panini,بانيني التركي,
+    Pizza Panini,بانيني البيتزا,
+    Club Chikin Caesar,كلوب سيزر دجاج,
+    Halloumi Club,كلوب الحلومي,
+    Fajita Panini Sandwich,ساندويتش دجاج الفاهيتا,
+        Sweet,الحلويات,
+      .,كيك الزعفران,
+    .,كوكيز,
+    .,كيك التراميسو,
+    .,كيكة العسل,
+    .,كيكة الروشية تشوكليت,
+    .,كيكة البستاشيو,
+        Sweets,الحلويات,
+        ">
+  <!-- Facebook Meta Tags -->
+  <meta property="og:url" content="https://mbshr.com/11/0">
+  <meta property="og:type" content="menu">
+  <meta property="og:description" content="Test Account \n
+  حساب تجربي">
+  <meta name="keywords" content="
+      Hot Drinks,مشروبات ساخنة,
+      Red Tea Sailan,شاي أسود سيريلانكي,
+    Jasmine Tea,شاي بالياسمين,
+    White Tea,شاي أبيض,
+    Green Tea,شاي أخضر عادي,
+    Oolong Tea,شاي أولونق الأخضر الصيني,
+    Matcha Late,ماتشا لاتيه,
+    Nirvana,نيرفانا,
+    Milk with Ginger,الحليب المبخر بالزنجبيل,
+    Milk with Ginger,الحليب المبخر بالزنجبيل,
+    Hot Chocolate,شوكولا ساخنة,
+    Karak Tea,شاي كرك,
+    .,كيكة الريد فلفت,
+        Cold Drinks,مشروبات باردة,
+      Mocha Frappe,موكا فرابي,
+    Pistachio Latte,بستاشيو لاتيه,
+    Spanish Latte,سبانيش لاتيه,
+    Fresh Orange Juice,عصير البرتقال الطازج,
+    Mint-Lemon,ليمون بالنعناع,
+    Red Bull flavored,ريد بول منكهة,
+        Specialized Coffee,القهوة المتخصصة,
+      Cold Brew Coffee,القهوة المقطرة على البارد,
+    Chemex Coffee,قهوة الكيمكس,
+    Pour Over Coffee,قهوة البور أوفر,
+    French Press Coffee,قهوة الفرنش بريس,
+    French Press Coffee,قهوة الفرنش بريس,
+        Hot Coffee Drinks,القهوة الساخنة,
+      Turkish Coffee,القهوة التركية,
+    Coffee Latte,كوفي لاتيه,
+    American coffee,القهوة الأمريكية المقطرة,
+    French Coffee,قهوة فرنسية,
+    Spanish Latte,سبانيش لاتيه,
+    Cortado,كورتادو,
+    Pistachio Latte,بيستاشيو لاتيه,
+    Espresso,الاسبرسو,
+    Espresso,الاسبرسو,
+    Coffee Mocha,كوفي موكا,
+    Cafe au lait,لايت كوفي,
+        Sandwich,سندويشات خفيفة,
+      Shawarma Club,شاورما كلوب,
+    Shawarma Panini,شاورما بخبز السمسم,
+    Halloumi Panini,بانيني حلومي,
+    Turkey Panini,بانيني التركي,
+    Pizza Panini,بانيني البيتزا,
+    Club Chikin Caesar,كلوب سيزر دجاج,
+    Halloumi Club,كلوب الحلومي,
+    Fajita Panini Sandwich,ساندويتش دجاج الفاهيتا,
+        Sweet,الحلويات,
+      .,كيك الزعفران,
+    .,كوكيز,
+    .,كيك التراميسو,
+    .,كيكة العسل,
+    .,كيكة الروشية تشوكليت,
+    .,كيكة البستاشيو,
+        Sweets,الحلويات,
+      ">
+    <meta property="og:image" content="http://mbshr.com/images/logos/NoBAqGF7dBbDKCMlpvy9.png">
+    <!-- Twitter Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="مباشر | قائمة الطعام الذكية">
+  <meta name="twitter:description" content="Test Account \n
+  حساب تجربي">
+  <meta name="keywords" content="
+      Hot Drinks,مشروبات ساخنة,
+      Red Tea Sailan,شاي أسود سيريلانكي,
+    Jasmine Tea,شاي بالياسمين,
+    White Tea,شاي أبيض,
+    Green Tea,شاي أخضر عادي,
+    Oolong Tea,شاي أولونق الأخضر الصيني,
+    Matcha Late,ماتشا لاتيه,
+    Nirvana,نيرفانا,
+    Milk with Ginger,الحليب المبخر بالزنجبيل,
+    Milk with Ginger,الحليب المبخر بالزنجبيل,
+    Hot Chocolate,شوكولا ساخنة,
+    Karak Tea,شاي كرك,
+    .,كيكة الريد فلفت,
+        Cold Drinks,مشروبات باردة,
+      Mocha Frappe,موكا فرابي,
+    Pistachio Latte,بستاشيو لاتيه,
+    Spanish Latte,سبانيش لاتيه,
+    Fresh Orange Juice,عصير البرتقال الطازج,
+    Mint-Lemon,ليمون بالنعناع,
+    Red Bull flavored,ريد بول منكهة,
+        Specialized Coffee,القهوة المتخصصة,
+      Cold Brew Coffee,القهوة المقطرة على البارد,
+    Chemex Coffee,قهوة الكيمكس,
+    Pour Over Coffee,قهوة البور أوفر,
+    French Press Coffee,قهوة الفرنش بريس,
+    French Press Coffee,قهوة الفرنش بريس,
+        Hot Coffee Drinks,القهوة الساخنة,
+      Turkish Coffee,القهوة التركية,
+    Coffee Latte,كوفي لاتيه,
+    American coffee,القهوة الأمريكية المقطرة,
+    French Coffee,قهوة فرنسية,
+    Spanish Latte,سبانيش لاتيه,
+    Cortado,كورتادو,
+    Pistachio Latte,بيستاشيو لاتيه,
+    Espresso,الاسبرسو,
+    Espresso,الاسبرسو,
+    Coffee Mocha,كوفي موكا,
+    Cafe au lait,لايت كوفي,
+        Sandwich,سندويشات خفيفة,
+      Shawarma Club,شاورما كلوب,
+    Shawarma Panini,شاورما بخبز السمسم,
+    Halloumi Panini,بانيني حلومي,
+    Turkey Panini,بانيني التركي,
+    Pizza Panini,بانيني البيتزا,
+    Club Chikin Caesar,كلوب سيزر دجاج,
+    Halloumi Club,كلوب الحلومي,
+    Fajita Panini Sandwich,ساندويتش دجاج الفاهيتا,
+        Sweet,الحلويات,
+      .,كيك الزعفران,
+    .,كوكيز,
+    .,كيك التراميسو,
+    .,كيكة العسل,
+    .,كيكة الروشية تشوكليت,
+    .,كيكة البستاشيو,
+        Sweets,الحلويات,
+      ">
+    <meta name="twitter:image" content="http://mbshr.com/images/logos/NoBAqGF7dBbDKCMlpvy9.png">
+    <title>Joe's cafe</title>
+  
+  <link rel="dns-prefetch" href="//fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@400;700&family=Amiri:ital,wght@0,700;1,400&family=Aref+Ruqaa:wght@400;700&family=Cairo:wght@400;600;700&family=Changa:wght@400;700&family=El+Messiri:wght@400;700&family=Harmattan&family=Jomhuria&family=Katibeh&family=Lalezar&family=Lateef&family=Lemonada:wght@400;700&family=Mada:wght@400;700&family=Markazi+Text:wght@400;700&family=Mirza:wght@400;700&family=Rakkas&family=Reem+Kufi&family=Roboto:wght@300;500&family=Scheherazade:wght@400;700&family=Tajawal:wght@400;700&family=Vibes&display=swap" rel="stylesheet">
+  <!-- Styles -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="http://mbshr.com/css/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" integrity="sha256-2XFplPlrFClt0bIdPgpz8H7ojnk10H69xRqd9+uTShA=" crossorigin="anonymous" />
+  <!-- Fontastic Custom icon font-->
+  <link rel="stylesheet" href="http://mbshr.com/css/fontastic.css">
+
+
+  <link href="http://mbshr.com/css/toaster.min.css" rel="stylesheet" />
+  <script src="http://mbshr.com/js/angular.min.js"></script>
+  <script src="http://mbshr.com/js/angular-animate.min.js"></script>
+  <script src="http://mbshr.com/js/toaster.min.js"></script>
+  <script src="http://mbshr.com/js/angular-sanitize.min.js"></script>
+  <script src="http://mbshr.com/js/angular-ui-router.min.js"></script>
+  <script src="http://mbshr.com/js/moment.js"></script>
+  <script src="http://mbshr.com/js/angular-moment.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fingerprintjs2/2.1.0/fingerprint2.min.js" integrity="sha256-S/UuH5LOnqk/MwJZQ9ANv+XnP/HI3cFQeu6KyC003A8=" crossorigin="anonymous"></script>
+  <script src="http://mbshr.com/js/ngapp.js"></script>
+  <script src="http://mbshr.com/js/customerOrderController.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  <!-- Popper JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+  <script type="text/javascript">
+    if (window.requestIdleCallback) {
+      requestIdleCallback(function () {
+        Fingerprint2.get(function (components) {
+          console.log(JSON.stringify(components)==window.localStorage.getItem('key'))
+          window.localStorage.setItem('key',JSON.stringify(components));
+          console.log(components);
+        })
+      })
+    } else {
+      setTimeout(function () {
+        Fingerprint2.get(function (components) {
+          console.log(components) // an array of components: {key: ..., value: ...}
+        })  
+      }, 500)
+    }
+    var place_id="11";
+    var table_id="0";
+    var order_id="11-0-202070153359";
+  </script>
+  <script type="text/javascript">
+    var baseurl = "http://mbshr.com";
+        var user_id=0;
+        var token= "g02JRNHg3LqP7F3QAlrd4bG6CPjxKMREb18SaFfa";
+
+    var currency ={en:"SR",ar:"ريال"};
+        currency.en="SR";
+            currency.ar="ريال";
+ 
+      </script>
+
+  <style type="text/css">
+    .tab-pane.active {
+      animation: slide-down 0.5s ease-out;
+    }
+
+    @keyframes  slide-down {
+      0% { opacity: 0; transform: translateY(100%); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    body
+    {
+
+      -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+      -khtml-user-select: none; /* Konqueror HTML */
+      -moz-user-select: none; /* Old versions of Firefox */
+      -ms-user-select: none; /* Internet Explorer/Edge */
+      user-select: none; 
+      background: #000;
+      background-image:linear-gradient(#fff, #FFA500), url('http://mbshr.com/images/logos/NoBAqGF7dBbDKCMlpvy9.png');
+      background-size: cover;
+      font-family: '';
+      text-align: unset;
+    }
+    .mainbody
+    {
+      float:<%left%>;
+      max-width: 768px;
+      width: 100%;
+      background-image:linear-gradient(#fff, #ec1951), url('http://mbshr.com/images/covers/zIw90zqXXWwBEYpyVpo4.jpeg');
+      background-size: cover;
+      background-blend-mode: saturation;
+      background-attachment: fixed;
+      
+    }
+    .main-content
+    {
+      background-image: linear-gradient(#fff,#eeeeeecc);
+      min-height: calc(100vh - 100px);
+      margin-top:130px;
+      padding-bottom: 60px;
+      
+      
+    }
+    .categories-tabs
+    {
+      width: 100%;
+      min-height: 74px;
+      font-size: 14px;
+      min-width: -webkit-max-content;
+      overflow-x: scroll;
+      box-sizing: border-box;
+      text-align: center;
+      position: relative;
+      display: flex;
+      flex-shrink: 0;
+      padding-inline-start: 0px;
+    }
+    .category-tab
+    {
+
+      max-width: 86px;
+      min-width: 84px;
+      padding-<%left%>: 0px;
+      padding-right: 0px;
+      margin: 0.25rem;
+      display: flex;
+    }
+    .category-tab img
+    {
+      width: 84px;
+      border-radius: .25rem; 
+
+    }
+    .item-img
+    {
+      width:84px;
+      float:<%left%>;
+      margin-<%left%>: -5px;
+      margin-<%right%>: 10px;
+    }
+    .tabs
+    {
+      overflow-x: auto;
+      background: #fff;
+    }
+    .navbar
+    {
+      max-width: 768px;
+      min-height: 120px;
+      width: 100%;
+      position: fixed;
+      top:0px;
+      <%left%>:0px;
+      background: #fff;
+      z-index: 10;
+      box-shadow: 0 0 10px 0;
+    }
+    .category-tab .button
+    {
+      background: #ffffffee;
+      position: absolute;
+      bottom: 2px;
+      display: -webkit-box;
+      text-overflow: ellipsis;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+
+    }
+    .category-tab div.button
+    {
+      height: fit-content;
+      display: table-cell;
+      text-align: center;
+      vertical-align: middle;
+      width: 84px;
+      min-height: 30px;
+      padding-top: 5px;
+    }
+    .category-tab div.active .button
+    {
+
+      border-bottom: 2px solid;
+      color:#7e566a;
+    }
+    .category-tab a:hover
+    {
+     text-decoration: none;
+     color:#7e566a;
+   }
+
+
+   .item h2
+   {
+    padding-top:5px;
+    font-size: 16px;
+    margin-bottom: 0px;
+    color:#7e566a;
+  }
+  .item h2 small
+  {
+    float:<%right%>;
+    font-size: 10px;
+    color:#000000;
+  }
+  .float-end
+  {
+    float:<%right%>;
+  }
+  .item h2 span.countLabel
+  {
+    float:<%right%>;
+    font-size: 22px;
+  }
+  .item h2.price
+  {
+    font-size: 14px;
+    font-family: roboto;
+    color:#ec1951;
+    position:relative;
+    botton:0px;
+  }
+  .item h2.price span
+  {
+    float:<%left%>;
+    padding-<%left%>:5px;
+    padding-<%right%>:5px;
+  }
+  .item small
+  {
+    font-size: 75%;
+  }
+  .item
+  {
+    opacity: 1;
+    box-shadow: 0px 0px 2px 0px #ec1951;
+    margin:10px 10px;
+    border:none;
+    min-height: 80px;
+
+  }
+  .item .details
+  {
+    margin: 0px 20px;
+  }
+  .col-4,.col
+  {
+    padding-right:0px;
+    padding-left:0px;
+  }
+  .item img
+  {
+   border-radius: 0.25rem;
+ } 
+ [data-prefix="fa"],[data-prefix="far"],[data-prefix="fas"],[data-prefix="fab"]
+ {
+  color:#FFA500;
+}
+
+.logo
+{
+  width: 64px;
+}
+.navRow
+{
+  width: 100vw;
+}
+.dropdown-menu
+{
+  <%right%>:0px;
+  float:<%right%>;
+  <%left%>:unset;
+}
+.dropdown-toggle
+{
+  color:#FFA500;
+  padding:20px 0;
+}
+.dropdown-toggle::after
+{
+  display: none;
+}
+.btntool
+{
+  padding:20px 0;
+}
+.loadingLayout
+{
+  position: fixed;
+  top:0px;
+  left:0px;
+  height: 100vh;
+  width: 100vw;
+  z-index: 12;
+  display: table;
+  background: #7e566a;
+}
+.loadingLayout img
+{
+  width: 50%;
+  position: absolute;
+  top:37%;
+  left:25%;
+
+  border-radius: 40px;
+}
+.loadingLayout.ng-animate.ng-hide-animate
+{
+  display: block !important;
+  animation: slide-down 1s ease-out;
+  transition: all 1 0s;
+}
+.powerdBy
+{
+  background: #fff;
+  max-width: 768px;
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  height: 60px;
+  text-align: center;
+  direction: ltr;
+  font-size: 10px;
+  padding-top:10px;
+  box-shadow: 0px 0px 10px 0px;
+}
+.powerdBy img
+{
+  max-height: 25px;
+  
+}
+.itemPage
+{
+  animation: slide-down .5s ease-out -.5s;
+  max-width:768px;
+  width: 100%;
+  
+  width: 100%;
+  height: 100vh;
+  background: #fff;
+  position: fixed;
+  top:0px;
+  <%left%>:0;
+  z-index: 15;
+  overflow-y:scroll;
+  overflow-x: hidden;
+  padding-bottom:120px;
+}
+
+
+/*==================*/
+.navigate-back
+{
+  animation: slide-down 1.5s ease-out;
+  width: 36px;
+  background-color: rgb(255, 255, 255);
+  position: absolute;
+  left: 10px;
+  padding: 8px;
+  border-radius: 10px;
+  height: 36px;
+  text-align: center;
+  top: 10px;
+}
+.item-img-container
+{
+  animation: slide-down .5s ease-out;
+  height: 300px;
+  overflow: hidden;
+}
+.item-img-container img
+{
+  width: 100%;
+}
+.item-details-container
+{
+  animation: slide-down .7s ease-out;
+  padding-top:20px;
+  text-align: center;
+  
+}
+.item-details-container h2
+{
+  font-size: 22px;
+  color:#7e566a;
+}
+.item-details-container h3
+{
+
+  font-size: 18px;
+  color:#ec1951;
+}
+.item-details-container h4
+{
+
+  font-size: 16px;
+  color:#000000;
+}
+.item-details-container p
+{
+  line-height: 1rem;
+  font-size: 0.9rem;
+  text-align: center;
+}
+.itemPage .extraFields,.extraNotes
+{
+  animation: slide-down .5s ease-out;
+  padding:0 20px;
+}
+.extraNotes textarea
+{
+  height: 120px;
+  border-radius: 0.25rem;
+  border: solid 1px #7e566a;
+
+}
+.field
+{
+  text-align: center;
+  margin-top:20px;
+  margin-bottom: 20px;
+  animation: slide-down .5s ease-out;
+}
+.field h5
+{
+  font-size: 18px;
+  color:#7e566a;
+}
+.itemPage h5
+{
+  font-size: 14px;
+  color:#7e566a;
+}
+.itemPage .option
+{
+  animation: slide-down .5s ease-out;
+  text-align: <%left%>;
+  font-size: 12px;
+  background-color: #00000011;
+  padding:10px;
+  margin-bottom:5px;
+}
+.addtorder
+{
+  max-width: 768px;
+  position: fixed;
+  bottom: 0px;
+  height: 50px;
+  color:#fff;
+  border-radius: 0px;
+  background-color: #7e566a;
+
+}
+.modal-dialog
+{
+  margin:0px;
+  height: 100%;
+}
+.modal-content,.modal-content,.modal
+{
+  height: 100%;
+}
+.modal-content
+{
+  overflow-y: auto;
+  margin-bottom: 90px;
+}
+.btn-outline-theme
+{
+  border:1px solid #7e566a;
+  color:#7e566a;
+}
+.btn-theme
+{
+  background-color: #7e566a;
+  color:#fff;
+}
+.btn.active
+{
+  background-color: #7e566a;
+  color:#000000;
+}
+.btn svg
+{
+  font-size: 20px;
+}
+.btn.active svg
+{
+  color: #fff;
+}
+.field .row
+{
+  margin-top: 20px;
+}
+.field textarea
+{
+  height: 120px;
+  border-radius: 0.25rem;
+  border: solid 1px #7e566a;
+}
+.field input
+{
+  border-radius: 0.25rem;
+  border: solid 1px #7e566a;
+}
+.survey-submit
+{
+  position: fixed;
+  bottom: 0px;
+  height: 50px;
+  max-width: 768px;
+}
+#survey .modal-content
+{
+  max-width: 768px;
+  margin-bottom: 50px;
+
+}
+.count
+{
+  background: #fff;
+  position: fixed;
+  bottom: 50px;
+  max-width: 768px;
+  width: 100%;
+  padding-top:5px;
+  height: 57px;
+  border-top: 1px solid #7e566a;
+
+
+}
+.cart
+{
+  width: 64px;
+  height: 64px;
+  position: fixed;
+  bottom: 50px;
+  right:10px;
+  z-index: 100;
+
+}
+p.extra
+{
+  font-size: 14px;
+}
+.btn-clear
+{
+  margin:5px;
+}
+.base-timer {
+  position: relative;
+  width: 200px;
+  height:200px;
+}
+
+.base-timer__svg {
+  transform: scaleX(-1);
+}
+
+.base-timer__circle {
+  fill: none;
+  stroke: none;
+}
+
+.base-timer__path-elapsed {
+  stroke-width: 7px;
+  stroke: grey;
+}
+
+.base-timer__path-remaining {
+  stroke-width: 7px;
+  stroke-linecap: round;
+  transform: rotate(90deg);
+  transform-origin: center;
+  transition: 1s linear all;
+  fill-rule: nonzero;
+  stroke: currentColor;
+}
+
+.base-timer__path-remaining.green {
+  color: rgb(65, 184, 131);
+}
+
+.base-timer__path-remaining.orange {
+  color: orange;
+}
+
+.base-timer__path-remaining.red {
+  color: red;
+}
+#base-timer-label
+{
+  font-size: 40px;
+  position: absolute;
+  top: 70px;
+  left: 60px;
+}
+#done,#cancelled
+{
+  font-size: 40px;
+  color:red;
+}
+
+</style>
+</head>
+<body>
+  <div  id="notification-sound" style="display: none;"></div>
+
+    <div class="mainbody">
+      <div class="loadingLayout" ng-hide="!isLoading">
+        <center>
+            <img src="https://cdn.iconscout.com/icon/free/png-256/mobile-food-6-1140314.png">
+
+        </center>
+      </div>
+
+      <div class="navbar text-center">
+<button id="playNotification" ng-click="playSound('done')"></button>
+        <div class="row navRow">
+          <div class="col-3">
+            <div class="btn-group btntool">
+              <button class="btn btn-link">
+                <i class="fa fa-bell" aria-hidden="true"></i>  
+              </button>
+              <button class="btn btn-link" ng-click="openSurvey()">
+                <i class="far fa-smile"></i>
+              </button>
+            </div>
+
+
+          </div>
+          <div class="col-6 text-center" style="font-size: 3em;font-family: cursive;">
+          <!-- <img class="logo" src="https://cdn.iconscout.com/icon/free/png-256/mobile-food-6-1140314.png">
+           -->
+           Joe's cafe
+          
+
+
+
+
+
+          </div>
+          <div class="col-3">
+            <div class="dropdown">
+              <div class="dropdown-toggle"  id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span ng-if="lang=='en'">عربي</span>
+                <span ng-if="lang=='ar'">English</span>
+
+              </div>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" ng-click="switchLag('ar')">عربي</a>
+                <a class="dropdown-item" ng-click="switchLag('en')">English</a>
+
+              </div>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="btn-group">
+                            <a class="btn btn-link" href="tel:(055) 514-9994"><i class="fa fas fa-phone-square-alt"></i></a>
+                                          <a class="btn btn-link" href="tel:(055) 514-9994"><i class="fa fas fa-mobile-alt"></i></a>
+                                                                                                </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="main-content" ng-cloak>
+
+        <br>
+        <center>
+          <h2><%_('Thank You for Your Order')%></h2>
+          <br>
+          <h3><%_('Order Number')%>
+            <br>
+            <h1 id="orderNum">7</h1>
+          </h3>
+          <br>
+          <h4>
+            <%_('Order Type')%>:
+            <span ng-if="order.table_id==0">Take Away</span>
+            <span ng-if="order.table_id!=0"><%_('Local')%></span>
+          </h4>
+          <br>
+          <h5>
+            
+            <span >Order Status: Pendding</span>
+            <span ng-if="order.status==2"><%_('In preparation')%></span>
+
+
+          </h5>
+          <span id="done" ng-if="order.status==3"><%_('Order is Done')%></span>
+          <span id="cancelled" ng-if="order.status==-1"><%_('Cancelled')%></span>
+          <p ng-if="order.cancelNote"><span><%_('The order cancelled because:')%></span><%order.cancelNote%></p>
+          <div ng-show="order.status==2" id="app"></div>
+        </center>
+
+
+
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/js/all.min.js" integrity="sha256-HkXXtFRaflZ7gjmpjGQBENGnq8NIno4SDNq/3DbkMgo=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="http://mbshr.com/js/ng-infinite-scroll.min.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-171580779-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      
+      gtag('config', 'UA-171580779-1');
+      let num=localStorage.getItem("num");
+    if(num!="")
+    {
+        let orderNumber=Number(num)+1;
+        localStorage.setItem("num",orderNumber);
+        orderNum.innerText=orderNumber;
+    }
+    else{
+        localStorage.setItem("num",1);
+        orderNum.innerText='1';
+
+    } 
+localStorage.setItem("lang","en");
+
+    </script>
+
+  </body>
+  </html>
